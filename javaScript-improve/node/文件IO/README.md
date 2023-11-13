@@ -1,0 +1,25 @@
+### 文件I/O
+
+- I/O `input` `output`
+  - 对外部设备的输入输出
+  - 外部设备
+    - 磁盘
+    - 网卡
+    - 显卡
+    - 打印机
+    - 其他...
+  - IO的速度往往低于内存和CPU的交互速度
+- `fs` 模块
+  - 读取一个文件`fs.readFile`
+  - 向文件写入内容 `fs.writeFile`
+  - 获取文件或目录信息 `fs.stat`
+    - `size`：占用的字节数
+    - `atime`：上次访问时间
+    - `mtime`：上次文件内容被修改时间
+    - `ctime`：上次文件状态被修改时间
+    - `birthtime`：文件创建时间
+    - `isDirectory()`：判断是否是目录
+    - `isFile()`：判断是否是文件
+  - 获取目录中的文件和子目录 `fs.readdir`
+  - 创建目录 `fs.mkdir`
+  - 判断文件或目录是否存在 `fs.exists`
