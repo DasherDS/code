@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>createCanvas</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>createCanvas</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body>
+    <canvas id="c1"></canvas>
+
+    <script>
+      const convas = document.querySelector("#c1");
+      const ctx = convas.getContext("2d");
+
+      // 建议这种创建  提示清晰  api全
+      const canvas2 = document.createElement("canvas");
+      document.body.append(canvas2);
+      const ctx2 = canvas2.getContext("2d");
+    </script>
+  </body>
 </html>
