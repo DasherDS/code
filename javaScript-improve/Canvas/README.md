@@ -35,17 +35,60 @@
 
 # 绘制图形
 
-1. 可以绘制两种举行，有三种方式
-   - 填充的矩形（实心）`ctx.fillRect(x,y,width,height)`
-   - 描边的矩形（空心）`ctx.strokeRect(x,y,width,height)`
-   - `ctx.rect(x,y,width,height)`  设置矩形路径，默认没有效果 需配合 `ctx.stroke()`, `ctx.fill()`
-     - 使用`fillStyle`属性设置填充的颜色
-     - 使用`strokeStyle`属性设置描边颜色
-     - 使用`lineWidth`属性设置描边的粗细
-     - **一定要在绘制图形之前设置**
-2. 
+### 绘制矩形
 
+- 可以绘制两种举行，有三种方式
 
+  - 填充的矩形（实心）`ctx.fillRect(x,y,width,height)`
 
+  - 描边的矩形（空心）`ctx.strokeRect(x,y,width,height)`
 
+  - `ctx.rect(x,y,width,height)`  设置矩形路径，默认没有效果 需配合 `ctx.stroke()`, `ctx.fill()`
+    - 使用`fillStyle`属性设置填充的颜色
+      - 使用`strokeStyle`属性设置描边颜色
+      - 使用`lineWidth`属性设置描边的粗细
+      - **一定要在绘制图形之前设置**
 
+---
+
+### `beginPath`方法
+
+`stroke()` 或 `fill()`默认会对之前所有绘制的路径进行一个处理
+
+当我们需要只对当前指定图形进行绘制时
+
+就可以使用`ctx.beginPath()`方法，为不同的途设置途径开关（设置分组）
+
+此时就只对紧邻这组路段进行一个绘制。
+
+*一组路径可以有多个*
+
+*使用`fillRect()`，`strokeRect()`不会有影响*    
+
+---
+
+### 绘制圆角矩形
+
+使用`ctx.roundRect(x, y, width, height, r)`方法绘制圆角矩形
+
+*r有多种写法，可以实现四个圆角单独设置*
+
+`r:10 | [10]`（全部）
+
+`r: [10,20]`（左上右下，右上左下）
+
+`r:[10,20,30]`（左上，右上左下，右下）
+
+`r:[10,20,30,40]`（上右下左）
+
+---
+
+### 绘制直线&折线
+
+两点之间的连线：直线
+
+多个直线连接：折线
+
+使用`ctx.moveTo(x, y)`将画笔放置到指定的坐标系位置（起始点）
+
+使用`ctx.lineTo(x,y)`从上一个点绘制直线路径到指定的点
