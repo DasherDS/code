@@ -18,17 +18,13 @@
     document.body.append(canvas);
     const ctx = canvas.getContext("2d");
 
-    ctx.strokeStyle = "#002FA7";
-    ctx.lineWidth = 5;
-    ctx.fillStyle = "#ecebe1";
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "red";
 
+    ctx.beginPath();
+    ctx.setLineDash([10, 10]);
     ctx.moveTo(50, 50);
     ctx.lineTo(250, 50);
-    ctx.lineTo(250, 90);
-    ctx.lineTo(220, 150);
-    ctx.lineTo(50, 50);
-
     ctx.stroke();
-    ctx.fill();
   </script>
 </html>

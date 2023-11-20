@@ -18,17 +18,28 @@
     document.body.append(canvas);
     const ctx = canvas.getContext("2d");
 
-    ctx.strokeStyle = "#002FA7";
-    ctx.lineWidth = 5;
-    ctx.fillStyle = "#ecebe1";
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "red";
 
+    ctx.lineJoin = "miter";
+    ctx.beginPath();
     ctx.moveTo(50, 50);
+    ctx.lineTo(150, 150);
     ctx.lineTo(250, 50);
-    ctx.lineTo(250, 90);
-    ctx.lineTo(220, 150);
-    ctx.lineTo(50, 50);
-
     ctx.stroke();
-    ctx.fill();
+
+    ctx.lineJoin = "round";
+    ctx.beginPath();
+    ctx.moveTo(50, 100);
+    ctx.lineTo(150, 200); 
+    ctx.lineTo(250, 100);
+    ctx.stroke();
+
+    ctx.lineJoin = "bevel";
+    ctx.beginPath();
+    ctx.moveTo(50, 150);
+    ctx.lineTo(150, 250);
+    ctx.lineTo(250, 150);
+    ctx.stroke();
   </script>
 </html>

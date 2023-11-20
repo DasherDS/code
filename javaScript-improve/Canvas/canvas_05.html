@@ -18,17 +18,31 @@
     document.body.append(canvas);
     const ctx = canvas.getContext("2d");
 
-    ctx.strokeStyle = "#002FA7";
-    ctx.lineWidth = 5;
-    ctx.fillStyle = "#ecebe1";
+    ctx.beginPath();
+    ctx.moveTo(50, 10);
+    ctx.lineTo(50, 130);
+    ctx.moveTo(250, 10);
+    ctx.lineTo(250, 130);
+    ctx.stroke();
 
+    ctx.beginPath();
+    ctx.lineWidth = 10;
+    ctx.lineCap = "butt"; // 平的 （没有任何效果）
+    ctx.strokeStyle = "red";
     ctx.moveTo(50, 50);
     ctx.lineTo(250, 50);
-    ctx.lineTo(250, 90);
-    ctx.lineTo(220, 150);
-    ctx.lineTo(50, 50);
-
     ctx.stroke();
-    ctx.fill();
+
+    ctx.beginPath();
+    ctx.lineCap = "round"; // 圆的
+    ctx.moveTo(50, 70);
+    ctx.lineTo(250, 70);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.lineCap = "square"; // 方的
+    ctx.moveTo(50, 90);
+    ctx.lineTo(250, 90);
+    ctx.stroke();
   </script>
 </html>
