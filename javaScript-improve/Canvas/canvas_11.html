@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    const canvas = document.createElement("canvas");
+    canvas.height = 300;
+    canvas.width = 300;
+    document.body.append(canvas);
+    const ctx = canvas.getContext("2d");
+
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = "red";
+    ctx.fillStyle = "#f00";
+    ctx.lineJoin = "round";
+    ctx.moveTo(50, 50);
+    ctx.lineTo(250, 50);
+    ctx.lineTo(250, 100);
+    ctx.closePath();
+
+    ctx.stroke();
+    ctx.fill();
+  </script>
+</html>
