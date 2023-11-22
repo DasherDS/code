@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    const canvas = document.createElement("canvas");
+    canvas.height = 500;
+    canvas.width = 500;
+    document.body.append(canvas);
+    const ctx = canvas.getContext("2d");
+
+    ctx.textAlign = "center";
+    ctx.textBaseline = "bottom";
+
+    ctx.strokeStyle = "red";
+    ctx.fillStyle = "red";
+    ctx.font = "40px sans-serif";
+
+    const obj = ctx.measureText("填充文本");
+    console.log(obj);
+
+    ctx.fillText("填充文本", 50, 50);
+    ctx.strokeText("填充文本", 100, 150, 50);
+    ctx.stroke();
+    ctx.fill();
+  </script>
+</html>

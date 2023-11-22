@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    const canvas = document.createElement("canvas");
+    canvas.height = 500;
+    canvas.width = 500;
+    document.body.append(canvas);
+    const ctx = canvas.getContext("2d");
+
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "red";
+
+    ctx.beginPath();
+    ctx.ellipse(100, 100, 100, 50, 0, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.ellipse(300, 100, 100, 50, 0, 0, Math.PI / 2, true);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.ellipse(100, 300, 100, 50, (Math.PI / 180) * 45, 0, Math.PI * 2);
+    ctx.stroke();
+  </script>
+</html>

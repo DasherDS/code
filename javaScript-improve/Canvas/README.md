@@ -175,3 +175,104 @@
 
 按照1，2，3顺序进行连线，两条线形成一个夹角。根据`r`绘制圆弧，保证两个线条相切。
 
+---
+
+### 绘制椭圆
+
+`ctx.ellipse(x,y,rx,ry,route,startAngle,endAngle,dir)`
+
+- `x,y`：圆点坐标
+- `rx,ry`：`x`轴半径和``y`轴半径
+- `route`：`x`轴旋转角度（顺时针）
+- `startAngle`：起始点角度默认0度，三点钟方向
+- `endAngle`：终点角度
+- `dir`：`true`： 逆时针方向  ， `false`：顺时针
+
+---
+
+### 绘制曲线
+
+**贝塞尔曲线**
+
+- 二次贝塞尔曲线
+- 三次贝塞尔曲线
+
+有一个起点和终点，在两个点中间有多个控制点*有一个控制点称为**二**次贝塞尔曲线，两个控制点为**三**次贝塞尔曲线*。
+
+从起点经过控制点，到终点依次连线。提供一个参数`t`在[0-1]范围内变化，每一个`t`都存在以下情况
+
+1. 在任意线段中，从起点到终点，存在一个中间点，使得前部分线段 / 整体线段 =  `t`
+2. 对每条线段的的这些点，再一次连接，形成一批新的线段（比之前一批少一条）。在新的一批线段中，依然存在符合比例`t`的那个点
+3. 重复之前连线，找点的操作
+4. 直到找到最后一个点，就是此贝塞尔曲线，在当前比例`t`时曲线的点
+
+当`t`在0-1范围内变化时，每次都会有一个这样的点，这些线点连接后就形成了贝塞尔曲线
+
+**一次贝塞尔曲线**
+
+![img](https://www.runoob.com/wp-content/uploads/2018/12/240px-b_1_big.gif)
+
+**二次贝塞尔曲线**
+
+![img](https://www.runoob.com/wp-content/uploads/2018/12/b_2_big.gif)
+
+**三次贝塞尔曲线**
+
+![img](https://www.runoob.com/wp-content/uploads/2018/12/b_3_big.gif)
+
+
+
+`ctx.quadraticCurveTo(cx1,cy1,ex,ey)`
+
+- `cx1,cy1`：控制点的坐标
+- `ex,ey`：终点的坐标
+- 起点的坐标是`moveTo`设置或上一次绘图的结尾
+
+`ctx.bezierCurveTo(cx1,cy1,cx2,cy2,ex,ey)`：三次贝塞尔曲线
+
+---
+
+### 绘制文本
+
+`ctx.fillText(textStr,x,y[, maxWidth])`：填充文本
+
+- `textStr`：文本内容
+- `x,y`：文本位置（坐标）
+- `maxWidth`：（可选）设置文本最大宽度
+  - 如果文本宽度  > 最大宽度 就会缩放，压缩在`maxWidth`范围内
+
+`ctx.strokeText()`：描边文本（镂空）
+
+`ctx.font`设置文本样式
+
+- 粗体
+- 斜体
+- 大小
+- 字体：`sans-serif`
+
+> 必须设置字体，否则其他样式无效
+
+`ctx.textAlign`：设置基于锚点水平位置`(left,center,right)`
+
+`ctx.textBaseline`：设置基于锚点的垂直位置`(top,middle,bottom)`
+
+`ctx.measureText("填充文本")`：预估
+
+```javascript
+const obj = ctx.measureText("填充文本");
+console.log(obj);
+
+TextMetrics:{
+    actualBoundingBoxAscent: 43.515625
+    actualBoundingBoxDescent: -3.515625
+    actualBoundingBoxLeft: 80
+    actualBoundingBoxRight: 80
+    alphabeticBaseline: 9.515625
+    fontBoundingBoxAscent: 51.515625
+    fontBoundingBoxDescent: 0.484375
+    hangingBaseline: 43.115623474121094
+    ideographicBaseline: -0.484375
+    width: 160
+}
+```
+

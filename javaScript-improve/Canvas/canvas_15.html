@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    const canvas = document.createElement("canvas");
+    canvas.height = 500;
+    canvas.width = 500;
+    document.body.append(canvas);
+    const ctx = canvas.getContext("2d");
+
+    ctx.strokeStyle = "red";
+
+    ctx.beginPath();
+    ctx.arc(50, 200, 2, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(150, 100, 2, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(250, 200, 2, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(50, 200);
+    ctx.quadraticCurveTo(150, 100, 250, 200);
+    ctx.stroke();
+  </script>
+</html>
