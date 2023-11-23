@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      const img = new Image();
+      img.src = "./040.jpg";
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0);
+      };
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 600;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      const img = new Image();
+      img.src = "./040.jpg";
+      img.onload = () => {
+        ctx.drawImage(img, 30, 80, 547, 364);
+      };
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 600;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      const img = new Image();
+      img.src = "./040.jpg";
+      img.onload = () => {
+        ctx.drawImage(img, 2500, 180, 5740, 3640, 0, 200, 300, 150);
+      };
+    })();
+  </script>
+</html>

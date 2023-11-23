@@ -276,3 +276,31 @@ TextMetrics:{
 }
 ```
 
+---
+
+### 绘制图形
+
+#### 基本使用
+
+需要有一个图片源
+
+- `image`对象对应`img`标签
+  - 可以是图片的路径
+  - 可以是`base64`表示
+- `video`对象
+- `canvas`对象
+
+`ctx.drawImage(imgSource,x,y)`：会按照图像原大小展示
+
+`ctx.drawImage(imgSource,x,y,width,height)`：图像展示的大小（缩放处理）
+
+`ctx.drawImage(imgSource,x1,y1,w1,h1,x2,y2,w2,h2)`：
+
+- `x1,y1,w1,h1`：图像的截图区域，此时给予图像的坐标系
+- `x2,y2,w2,h2`：画布展示区域
+
+#### 图像与动画
+
+#### 视频图像
+
+在视频播放中，抓取当前帧作为图像，引入`canvas`
