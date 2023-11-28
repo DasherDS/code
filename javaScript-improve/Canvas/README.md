@@ -304,3 +304,34 @@ TextMetrics:{
 #### 视频图像
 
 在视频播放中，抓取当前帧作为图像，引入`canvas`
+
+---
+
+#### 引入`canvas `图像
+
+`canvas`本身也是一个图像，也可以作为图像源，引入另一个`canvas`画布。
+
+下载 右键下载；编程式下载
+
+- `toDataURL()`：默认`png`格式
+  - `toDataURL('image/jpg')`
+- 如果`canvas`中的图像来自于其他的图像源可能出现同源问题：画布被污染
+  - 设置同源策略
+  - 服务器启动
+
+---
+
+#### 图像像素处理
+
+`imageData`对象，包含了某一个区域的像素值
+
+- `imageData.width`
+- `imageData.height`
+- `imageData.data array`：包含区域内所有的像素值(`rgba`值)
+  - `array` ：是一个以为数组，每四个位置表示一个像素值。
+  - `(x,y)`：像素值为
+    - `(imageData.width * 4) * x + y * 4 + 0/1/2/3 `
+
+使用`ctx.getImageData()`：获取画布中指定区域的`ImageData`对象
+
+获得`ImageData`对象后，就可以通过其获得每一个像素的值，也可以设置每一个像素的值，设置之后不会默认生效，还需要重新设置画布的`ImageData`，使用`ctx.putImageData(ImageData,x,y)`

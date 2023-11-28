@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body>
+    <button onclick="handleDownload()">下载</button>
+  </body>
+  <script>
+    const canvas = document.createElement("canvas");
+    canvas.height = 500;
+    canvas.width = 500;
+    document.body.append(canvas);
+    const ctx = canvas.getContext("2d");
+
+    for (let i = 0; i < 5; i++) {
+      ctx.beginPath();
+      ctx.arc(100, 100, 20 * i, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+    function handleDownload() {
+      const url = canvas.toDataURL();
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "下载";
+      a.click();
+    }
+  </script>
+</html>
