@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+      position: absolute;
+      cursor: pointer;
+    }
+    .div {
+      width: 800px;
+      height: 500px;
+      background: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 62px;
+      color: #002fa7;
+      position: absolute;
+    }
+    .div img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <body>
+    <div class="div"><img src="./040.jpg" alt="" /></div>
+  </body>
+  <script>
+    const canvas = document.createElement("canvas");
+    canvas.width = 800;
+    canvas.height = 500;
+
+    document.body.append(canvas);
+    const ctx = canvas.getContext("2d");
+
+    ctx.beginPath();
+    ctx.fillStyle = "#ecebe1";
+    ctx.fillRect(0, 0, 800, 500);
+
+    ctx.globalCompositeOperation = "destination-out";
+
+    ctx.beginPath();
+    ctx.fillStyle = "white";
+    ctx.strokeStyle = "black";
+    ctx.lineCap = "round";
+    ctx.lineWidth = 20;
+    ctx.lineJoin = "round";
+
+    canvas.onmousedown = function (e) {
+      ctx.moveTo(e.offsetX, e.offsetY);
+      canvas.onmousemove = function (ee) {
+        ctx.lineTo(ee.offsetX, ee.offsetY);
+        ctx.stroke();
+      };
+
+      canvas.onmouseup = function (eee) {
+        canvas.onmousemove = null;
+        canvas.onmouseup = null;
+      };
+    };
+
+    canvas.ontouchstart = function (e) {
+      ctx.moveTo(e.touches[0].clientX, e.touches[0].clientY);
+      canvas.ontouchmove = function (ee) {
+        ctx.lineTo(ee.touches[0].clientX, ee.touches[0].clientY);
+        ctx.stroke();
+      };
+
+      canvas.ontouchend = function (eee) {
+        canvas.ontouchmove = null;
+        canvas.ontouchend = null;
+      };
+    };
+  </script>
+</html>

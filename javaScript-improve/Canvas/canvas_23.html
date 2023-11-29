@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.beginPath();
+      ctx.fillStyle = "#002FA7";
+      ctx.fillRect(50, 50, 200, 200);
+
+      ctx.globalCompositeOperation = "lighter";
+
+      ctx.beginPath();
+      ctx.fillStyle = "#ecebe1";
+      ctx.fillRect(150, 150, 200, 200);
+    })();
+  </script>
+</html>

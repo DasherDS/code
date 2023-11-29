@@ -335,3 +335,32 @@ TextMetrics:{
 使用`ctx.getImageData()`：获取画布中指定区域的`ImageData`对象
 
 获得`ImageData`对象后，就可以通过其获得每一个像素的值，也可以设置每一个像素的值，设置之后不会默认生效，还需要重新设置画布的`ImageData`，使用`ctx.putImageData(ImageData,x,y)`
+
+---
+
+### 图像合成
+
+`ctx.globalCompositeOperation`属性设置合成机制
+
+需要在前后两个图形中间设置
+
+#### 路径合成
+
+- `source-over`：前后图形都展示，后面的图形覆盖在前面的图形上（默认值）
+- `source-over`：只展示后面的图像，展示重叠的部分
+- `source-out`：只展示后面的图像，展示不重叠的部分
+- `source-atop`：展示前面的图形，后面的图形只展示与前面图像重叠的部分
+- `destination`：系列（`over,in,out,atop`）上述合成特点，前后图像交换
+- `copy`：后面的图形覆盖前面的图像（前面的图像不展示了）
+- `xor`：展示前后图形非重叠的部分
+
+#### 颜色合成
+
+关注的是颜色的混合，图像的形状没有变化
+
+- `lighter`：重叠部分的颜色相加
+- `multiply`：整体偏暗
+- `screen`：整体偏亮
+- `darken`：同一个像素的颜色，取暗色（整体偏 暗）
+- `lighten`：同一个像素的颜色，取亮色（整体偏亮）
+
