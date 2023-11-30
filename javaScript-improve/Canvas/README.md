@@ -364,3 +364,40 @@ TextMetrics:{
 - `darken`：同一个像素的颜色，取暗色（整体偏 暗）
 - `lighten`：同一个像素的颜色，取亮色（整体偏亮）
 
+---
+
+### 颜色渐变
+
+#### 线性渐变
+
+`const gradient = ctx.createLinearGradient(x0,y0,x1,y1)`
+
+`x0,y0,x1,y1`会按照两点连线方向渐变（渐变中两点是基于坐标系的，最总在图形中显现的渐变效果可能与预期不同）
+
+使用`gradient.addColorStop(%,color)`方法设置渐变过程中每一部分的颜色
+
+设置`ctx.fillStyle = gradient` 或者 `ctx.strokeStyle= gradient`
+
+> 如果渐变范围比图形范围小，图形范围的两侧就是渐变两侧的颜色
+
+#### 径向渐变
+
+`const gradient = ctx.createRadialGradient(x1,y1,r1,x2,y2,r2)`
+
+`x1,y1,r1`：表示渐变开始的圆
+
+`x2,y2,r2`：表示渐变结束的圆
+
+> 一般都是一个大圆一个小圆才会有效果
+>
+> 小圆一定要在大圆内，否则会出现意想不到的效果
+>
+> 小圆以内大圆以外的范围就是渐变两端的颜色
+
+#### 锥形渐变
+
+` const gradient = ctx.createConicGradient(startAngle,x,y)`
+
+`startAngle`：旋转角度（默认0度角，3点钟方向）
+
+>`startAngle`：使用的是角度对应的弧度制

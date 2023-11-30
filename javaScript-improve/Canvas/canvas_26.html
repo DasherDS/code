@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      const gradient = ctx.createConicGradient(Math.PI / (180 / 85), 200, 200);
+      gradient.addColorStop(0, "red");
+      gradient.addColorStop(0.5, "yellow");
+      gradient.addColorStop(1, "#c9483c");
+
+      ctx.fillStyle = gradient;
+      ctx.arc(200, 200, 200, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.fill();
+    })();
+  </script>
+</html>
