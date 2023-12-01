@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = "blur(5px)";
+
+      const img = new Image();
+      img.src = "./040.jpg";
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 600, 400);
+      };
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = "brightness(0.5)";
+
+      const img = new Image();
+      img.src = "./040.jpg";
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 600, 400);
+      };
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = "contrast(0.5)";
+
+      const img = new Image();
+      img.src = "./040.jpg";
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 600, 400);
+      };
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = "saturate(0.5)";
+
+      const img = new Image();
+      img.src = "./040.jpg";
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 600, 400);
+      };
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = "grayscale(0.5)";
+
+      const img = new Image();
+      img.src = "./040.jpg";
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 600, 400);
+      };
+    })();
+  </script>
+</html>

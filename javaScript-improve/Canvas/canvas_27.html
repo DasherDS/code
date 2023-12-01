@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    canvas {
+      border: 1px solid;
+    }
+  </style>
+  <body></body>
+  <script>
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.shadowColor = "black";
+      ctx.shadowBlur = 50;
+
+      ctx.fillStyle = "#f00";
+      ctx.arc(200, 200, 100, 0, Math.PI * 2);
+      ctx.fill();
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.shadowColor = "#666";
+      ctx.shadowBlur = 20;
+      ctx.shadowOffsetX = 5;
+      ctx.shadowOffsetY = 5;
+
+      ctx.fillStyle = "#f00";
+      ctx.arc(200, 200, 100, 0, Math.PI * 2);
+      ctx.fill();
+    })();
+  </script>
+</html>

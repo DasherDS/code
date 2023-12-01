@@ -401,3 +401,25 @@ TextMetrics:{
 `startAngle`：旋转角度（默认0度角，3点钟方向）
 
 >`startAngle`：使用的是角度对应的弧度制
+
+---
+
+### 图像阴影
+
+`ctx.shadowBlur`：设置模糊程度，数字越大，越模糊
+
+`ctx.shadowColor`：设置阴影颜色
+
+`ctx.shadowOffsetX,ctx.shadowOffsetY`：设置阴影的偏移量
+
+---
+
+### 滤镜
+
+`ctx.filter`：
+
+- `ctx.filter = "blur(10px)"`：值越大，模糊效果越明显
+- `ctx.filter = "brightness(0.5)"`：1 原样子，小于1 变暗   大于1 变亮
+- `ctx.filter = "contrast(0.5)"`：1 原样，小于1 颜色接近  大于1颜色鲜明
+- `ctx.filter = "saturate(0.5)";` ：1 原样，小于1 颜色变灰 大于1颜色鲜明
+- `ctx.filter = "grayscale(0.5)";`：0 原来  1变灰
