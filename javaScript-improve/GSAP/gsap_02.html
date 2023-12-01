@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./lib/gsap.js"></script>
+  </head>
+  <style>
+    .box1 {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="box1"></div>
+    <button onclick="handleBegin()">开始</button>
+    <div>
+      <span></span>
+    </div>
+  </body>
+  <script>
+    const span = document.querySelector("span");
+
+    function myfunction(time, deltaTime, frame) {
+      span.innerText = `当前执行事件:${time}`;
+      console.log("time", time);
+      console.log("deltaTime", deltaTime);
+      console.log("frame", frame);
+    }
+
+    function handleBegin() {
+      gsap.ticker.add(myfunction);
+      gsap.to(".box1", { x: 800, duration: 5 });
+
+      gsap.delayedCall(5, () => {
+        gsap.ticker.remove(myfunction);
+      });
+    }
+  </script>
+</html>
