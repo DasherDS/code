@@ -96,5 +96,39 @@
         ctx.drawImage(img, 0, 0, 600, 400);
       };
     })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = "sepia(0.5)";
+
+      const img = new Image();
+      img.src = "./040.jpg";
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 600, 400);
+      };
+    })();
+
+    (() => {
+      const canvas = document.createElement("canvas");
+      canvas.height = 500;
+      canvas.width = 500;
+      document.body.append(canvas);
+      const ctx = canvas.getContext("2d");
+
+      ctx.filter = "invert(1)";
+
+      const img = new Image();
+      img.src = "./040.jpg";
+
+      img.onload = () => {
+        ctx.drawImage(img, 0, 0, 600, 400);
+      };
+    })();
   </script>
 </html>
