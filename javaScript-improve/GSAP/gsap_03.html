@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./lib/gsap.js"></script>
+    <script src="./lib/scrollTrigger.js"></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .wrap {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .top,
+    .middle,
+    .bottom {
+      width: 100%;
+      height: 100vh;
+    }
+
+    .top {
+      background-color: #47cbfc;
+    }
+
+    .middle {
+      background-color: #ec5c28;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .txt {
+      font-size: 50px;
+      color: #fff;
+    }
+
+    .bottom {
+      background-color: #b533a5;
+    }
+  </style>
+  <body>
+    <div class="wrap">
+      <div class="top"></div>
+      <div class="middle">
+        <div class="txt">★</div>
+      </div>
+      <div class="bottom"></div>
+    </div>
+  </body>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    /**
+     * start 第一个参数是 触发器也就是scrollTrigger -> trigger  触发的位置  也就是start
+     *      第二个参数是  到哪个位置触发 也就是 scroller-start  的位置
+    */
+
+    const t1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".middle",
+        start: "top 300px",
+        end: "800px top",
+        markers: true,
+        scrub: true,
+      },
+    });
+
+    t1.fromTo(".txt", { scale: 0 }, { scale: 2 });
+    t1.to(".txt", { y: 500 });
+  </script>
+</html>
