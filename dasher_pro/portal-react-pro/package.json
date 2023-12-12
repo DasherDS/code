@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@arco-design/mobile-react": "^2.30.3",
     "@arco-design/web-react": "^2.57.0",
+    "@arco-themes/react-colorblue": "^0.0.1",
     "ahooks": "^3.7.8",
     "axios": "^1.6.2",
     "gsap": "^3.12.3",
+    "less": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.69.5"
