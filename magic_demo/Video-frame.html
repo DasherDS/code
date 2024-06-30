@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>视频帧图片</title>
+  </head>
+  <body>
+    <input id="file" type="file" />
+  </body>
+  <script>
+    const fileDom = document.getElementById("file");
+    fileDom.onchange = (e) => {
+      const file = e.target.files[0];
+      captureFrame(file, 8).then(({ url }) => {
+        const img = document.createElement("img");
+        img.src = url;
+        document.body.appendChild(img);
+      });
+    };
+
+    const captureFrame = (file, time = 0) => {
+      return new Promise((resolve) => {
+        const vdo = document.createElement("video");
+        vdo.currentTime = time;
+        vdo.autoplay = true;
+        vdo.muted = true;
+        vdo.src = URL.createObjectURL(file);
+
+        vdo.oncanplay = () => {
+          const cvs = document.createElement("canvas");
+
+          cvs.width = vdo.videoWidth;
+          cvs.height = vdo.videoWidth;
+          const ctx = cvs.getContext("2d");
+          ctx.drawImage(vdo, 0, 0, cvs.width, cvs.height);
+          // document.body.appendChild(cvs);
+          cvs.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            resolve({
+              url,
+              blob,
+            });
+          });
+        };
+      });
+    };
+  </script>
+</html>
