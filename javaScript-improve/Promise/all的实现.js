@@ -28,7 +28,7 @@ Promise.all = function (args) {
 
 const p = [Promise.resolve(1), Promise.resolve(2), 3];
 
-Promise.all(null)
+Promise.all(p)
   .then((res) => {
     console.log(res);
   })
