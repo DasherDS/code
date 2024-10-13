@@ -9,3 +9,6 @@
 
 
 
+#### `Reflect.ownKeys(obj).length === 0`
+
+含义：这个表达式用于判断一个对象 obj 是否没有自身属性。如果对象obj 没有任何自身属性（报告自身的可枚举和不可枚举属性以及Symbol 属性），那么`Reflect.ownKeys(obj).length`的结果为0。
