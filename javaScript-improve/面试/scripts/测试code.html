@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const list = [
+      { id: 1, name: "部门1", pid: 0 },
+      { id: 2, name: "部门2", pid: 1 },
+      { id: 3, name: "部门3", pid: 1 },
+      { id: 4, name: "部门4", pid: 3 },
+      { id: 5, name: "部门5", pid: 4 },
+    ];
+
+    function solution(list) {
+      const map = new Map();
+      const tree = [];
+
+      list.forEach((item) => {
+        map.set(item.id, { ...item, children: [] });
+      });
+
+      list.forEach((item) => {
+        if (item.pid === 0) {
+          tree.push(map.get(item.id));
+        } else {
+          map.get(item.pid).children.push(map.get(item.id));
+        }
+      });
+
+      return tree;
+    }
+
+    const res = solution(list);
+    console.log(res);
+
+    function solution2(arr) {
+      const reslut = [];
+      function flatten(node) {
+        reslut.push(node);
+        if (Array.isArray(node.children) && node.children.length) {
+          node.children.forEach(flatten);
+        }
+        delete node.children;
+      }
+
+      arr.forEach(flatten);
+      return reslut;
+    }
+    const res2 = solution2(res);
+    console.log(res2);
+  </script>
+</html>
